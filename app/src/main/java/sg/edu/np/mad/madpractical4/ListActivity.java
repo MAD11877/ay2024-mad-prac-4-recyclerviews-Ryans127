@@ -18,10 +18,12 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        // Create a list of users
         List<User> userList = createRandomUsers(20);
 
+        // Initialize the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        UserAdapter adapter = new UserAdapter(userList); // Pass a non-null list
+        UserAdapter adapter = new UserAdapter(userList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -53,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private List<User> createRandomUsers(int count) {
-        List<User> userList = new ArrayList<>(); // Initialize an ArrayList, which is a List
+        List<User> userList = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < count; i++) {
