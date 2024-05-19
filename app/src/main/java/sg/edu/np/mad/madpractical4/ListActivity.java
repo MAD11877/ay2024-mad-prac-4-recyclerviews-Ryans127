@@ -21,10 +21,11 @@ public class ListActivity extends AppCompatActivity {
         List<User> userList = createRandomUsers(20);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        UserAdapter adapter = new UserAdapter(userList);
+        UserAdapter adapter = new UserAdapter(userList); // Pass a non-null list
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        // Adding click listener to RecyclerView (imageView3)
         recyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private List<User> createRandomUsers(int count) {
-        List<User> userList = new ArrayList<>();
+        List<User> userList = new ArrayList<>(); // Initialize an ArrayList, which is a List
         Random random = new Random();
 
         for (int i = 0; i < count; i++) {
