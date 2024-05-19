@@ -1,6 +1,23 @@
 package sg.edu.np.mad.madpractical4;
 
-public class User {
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.content.Context;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class User implements Serializable {
     // Fields
     public String name;
     public String description;
@@ -15,39 +32,18 @@ public class User {
         this.followed = followed;
     }
 
-    // Getter and Setter for name
+    // Getter for name
     public String getName() {
         return name;
     }
 
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    // Getter and Setter for description
+    // Getter for description
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String newDesc) {
-        this.description = newDesc;
-    }
-
-    // Getter and Setter for id
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int newId) {
-        this.id = newId;
-    }
-
-    // Getter and Setter for followed
+    // Getter for followed
     public boolean getFollowed() {
         return followed;
-    }
-
-    public void setFollowed(boolean newFollowed) {
-        this.followed = newFollowed;
     }
 }
