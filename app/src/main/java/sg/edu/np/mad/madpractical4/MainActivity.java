@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         tvDescription.setText(user.getDescription());
 
         // Set the initial button text based on followed status
-        if (user.isFollowed()) {
+        if (user.getFollowed()) {
             btnFollow.setText("UNFOLLOW");
         } else {
             btnFollow.setText("FOLLOW");
@@ -48,17 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Set click listener for the Follow button
         btnFollow.setOnClickListener(new View.OnClickListener() {
+            boolean isFollowed = user.getFollowed(); // Local variable to track follow status
+
             @Override
             public void onClick(View v) {
-                if (btnFollow.getText().toString().equalsIgnoreCase("FOLLOW")) {
-                    Toast.makeText(MainActivity.this, "Followed", Toast.LENGTH_SHORT).show();
-                    btnFollow.setText("UNFOLLOW");
-                    user.setFollowed(true);
-                } else {
+                if (isFollowed) {
                     Toast.makeText(MainActivity.this, "Unfollowed", Toast.LENGTH_SHORT).show();
                     btnFollow.setText("FOLLOW");
-                    user.setFollowed(false);
+                } else {
+                    Toast.makeText(MainActivity.this, "Followed", Toast.LENGTH_SHORT).show();
+                    btnFollow.setText("UNFOLLOW");
                 }
+                isFollowed = !isFollowed; // Toggle the follow status
             }
         });
     }

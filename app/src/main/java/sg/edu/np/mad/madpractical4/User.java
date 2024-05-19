@@ -13,7 +13,6 @@ public class User {
         this.followed = followed;
     }
 
-    // Getter methods
     public String getName() {
         return name;
     }
@@ -22,17 +21,7 @@ public class User {
         return description;
     }
 
-    public boolean isFollowed() {
-        return followed;
-    }
-
-    // Added method to match the expected test case
     public boolean getFollowed() {
         return followed;
-    }
-
-    // Setter method for followed
-    public void setFollowed(boolean followed) {
-        this.followed = followed;
     }
 }
