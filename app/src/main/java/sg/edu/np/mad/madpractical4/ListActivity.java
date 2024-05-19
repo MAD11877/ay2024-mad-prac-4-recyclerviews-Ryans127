@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class ListActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         UserAdapter adapter = new UserAdapter(userList); // Ensure this list is non-null
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
         // Adding click listener to RecyclerView
@@ -55,7 +57,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private List<User> createRandomUsers(int count) {
-        List<User> userList = new ArrayList<>(); // Initialize an ArrayList, which implements List
+        List<User> userList = new ArrayList<>(); // Using ArrayList, which implements List
         Random random = new Random();
 
         for (int i = 0; i < count; i++) {
