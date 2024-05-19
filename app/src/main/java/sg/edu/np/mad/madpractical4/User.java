@@ -25,5 +25,4 @@ public class User {
     public boolean isFollowed() {
         return followed;
     }
-
 }
