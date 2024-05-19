@@ -1,6 +1,7 @@
 package sg.edu.np.mad.madpractical4;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,12 @@ import java.util.Random;
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private List<User> userList;
+    private Context context;
 
-    public UserAdapter(List<User> userList) {
+    // Constructor with List<User> and Context
+    public UserAdapter(List<User> userList, Context context) {
         this.userList = userList;
+        this.context = context;
     }
 
     @NonNull
@@ -38,7 +42,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
             @Override
             public void onClick(View v) {
                 // Create an AlertDialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Profile")
                         .setMessage("MADness")
                         .setPositiveButton("VIEW", (dialog, which) -> {
@@ -47,9 +51,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
                             int randomInt = random.nextInt(100); // Generates a random integer from 0 to 99
 
                             // Create an Intent to start MainActivity
-                            Intent intent = new Intent(holder.itemView.getContext(), MainActivity.class);
+                            Intent intent = new Intent(context, MainActivity.class);
                             intent.putExtra("RandomNumber", randomInt);
-                            holder.itemView.getContext().startActivity(intent);
+                            context.startActivity(intent);
                         })
                         .setNegativeButton("CLOSE", (dialog, which) -> dialog.dismiss())
                         .setCancelable(true);
