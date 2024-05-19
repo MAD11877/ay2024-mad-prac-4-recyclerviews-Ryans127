@@ -26,6 +26,11 @@ public class User {
         return followed;
     }
 
+    // Added method to match the expected test case
+    public boolean getFollowed() {
+        return followed;
+    }
+
     // Setter method for followed
     public void setFollowed(boolean followed) {
         this.followed = followed;
