@@ -25,4 +25,9 @@ public class User {
     public boolean isFollowed() {
         return followed;
     }
+
+    // Setter method for followed
+    public void setFollowed(boolean followed) {
+        this.followed = followed;
+    }
 }
